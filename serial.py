@@ -20,14 +20,15 @@ class SerialGenerator:
 
     def __init__(self, start):
         """
-        create serial generator beginning at start
+        create serial generator with serial number beginning at start
         """
         self.start = start
         self.counter = 0
 
     def generate(self):
         """
-        return a new sequential number
+        return a new serial number in sequence after the previously generated
+        serial number
         """
         current_counter = self.counter
         self.counter += 1
@@ -35,6 +36,6 @@ class SerialGenerator:
 
     def reset(self):
         """
-        reset the current number back to 0
+        reset the current serial number counter back to 0
         """
         self.counter = 0
