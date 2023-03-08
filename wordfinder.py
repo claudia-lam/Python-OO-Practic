@@ -1,5 +1,19 @@
 class WordFinder:
-    """Word Finder: finds random words from a dictionary."""
+    """Word Finder: finds random words from a dictionary.
+
+    >>> wf = WordFinder("my_file.txt")
+    5 words read
+
+    >>> wf.get_words()
+    5 words read
+    ['cat', 'dog', 'snake', 'bird', 'rabbit']
+
+    >>> list = ['cat', 'dog', 'snake', 'bird', 'rabbit']
+    >>> wf.random() in list
+    True
+
+
+    """
 
     def __init__(self, path):
         """Create a WordFinder from words located at path"""
@@ -27,16 +41,16 @@ class SpecialWordFinder(WordFinder):
     """Special Word Finder: finds random words from a dictionary
     uses blank lines and # symbols for comments"""
 
-    def __init__(self, path):
-        """Create new Special Word Finder from file with comments/blank lines"""
-        super().__init__(path)
-        self.words = self.filter_out(self.words)
+    # def __init__(self, path):
+    #     """Create new Special Word Finder from file with comments/blank lines"""
+    #     super().__init__(path)
+    #     self.words = self.filter_out(self.words)
 
-    def filter_out(self, words): #could use polymorphism with super().get_words
+    def get_words(self): #could use polymorphism with super().get_words
         """Take word list and return new version with comments and blank lines
         filtered out"""
-        # parent_words = super().get_words()
-        return [word for word in words if word != "" and
+        parent_words = super().get_words()
+        return [word for word in parent_words if word != "" and
                 not word.startswith("#")]
 
 

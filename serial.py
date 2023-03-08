@@ -25,6 +25,9 @@ class SerialGenerator:
         self.start = start
         self.counter = 0
 
+    def __repr__(self):
+        return (f"<SerialGenerator start={self.start} next={self.start + self.counter + 2}>")
+
     def generate(self):
         """
         return a new serial number in sequence after the previously generated
@@ -39,3 +42,4 @@ class SerialGenerator:
         reset the current serial number counter back to 0
         """
         self.counter = 0
+
